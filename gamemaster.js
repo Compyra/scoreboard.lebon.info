@@ -268,6 +268,11 @@ function loadChallengers() {
     const challengers = JSON.parse(localStorage.getItem('challengers')) || [];
     const container = document.getElementById('challengersContainer');
 
+    if (!container) {
+        console.warn('Challengers container not found');
+        return;
+    }
+
     if (challengers.length === 0) {
         container.innerHTML = '<div class="no-challengers">No challengers registered yet.</div>';
         return;
